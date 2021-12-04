@@ -1,21 +1,33 @@
 package com.nopcommerce.demo.pages;
 
 import com.nopcommerce.demo.utility.Utility;
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by Jay Vaghani
  */
 public class HomePage extends Utility {
 
-    By loginLink = By.linkText("Log in");
-    By registerLink = By.linkText("Register");
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
 
-    public void clickOnLoginLink(){
+    @FindBy(linkText = "Log in")
+    WebElement loginLink;
+
+    @FindBy(linkText = "Register")
+    WebElement registerLink;
+
+//    By loginLink = By.linkText("Log in");
+//    By registerLink = By.linkText("Register");
+
+    public void clickOnLoginLink() {
         clickOnElement(loginLink);
     }
 
-    public void clickOnRegisterLink(){
+    public void clickOnRegisterLink() {
         clickOnElement(registerLink);
     }
 
